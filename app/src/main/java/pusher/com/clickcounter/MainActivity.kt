@@ -22,13 +22,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     val pusherOptions = PusherOptions().setCluster(PUSHER_CLUSTER)
-    var pusher = Pusher(PUSHER_API_KEY, pusherOptions)
+    val pusher = Pusher(PUSHER_API_KEY, pusherOptions)
     val httpClient = OkHttpClient()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         fetchCurrentClickCount()
         connectToRealtimeUpdates()
