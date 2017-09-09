@@ -37,10 +37,6 @@ class MainActivity : AppCompatActivity() {
         clickButton.setOnClickListener { postClick() }
     }
 
-    private fun updateActiveCount(count: Int) {
-        countTextView.text = count.toString()
-    }
-
     private fun fetchCurrentClickCount() {
         val getClickCountRequest = Request.Builder().url("$SERVER_URL/counts").build()
 
@@ -57,9 +53,9 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call?, response: Response?) {
                     response?.body()?.also { body ->
-                        val activeCount = Gson().fromJson(body.string(), ClickCount::class.java)
+                        val clickCount = Gson().fromJson(body.string(), ClickCount::class.java)
 
-                        runOnUiThread { updateActiveCount(activeCount.count) }
+                        runOnUiThread { countTextView.text = clickCount.count.toString() }
                     }
                 }
             })
@@ -98,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         val pusherChannel = pusher.subscribe(CLICK_CHANNEL)
         pusherChannel.bind(CLICK_EVENT) { _, _, data ->
             val clickCount = Gson().fromJson(data, ClickCount::class.java)
-            runOnUiThread { updateActiveCount(clickCount.count) }
+            runOnUiThread { countTextView.text = clickCount.count.toString() }
         }
     }
 
