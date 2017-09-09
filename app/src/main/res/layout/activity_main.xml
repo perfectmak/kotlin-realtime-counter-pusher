@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pusher.com.activeusercounter.pusher.com.clickcounter.MainActivity">
+    tools:context="pusher.com.clickcounter.MainActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
