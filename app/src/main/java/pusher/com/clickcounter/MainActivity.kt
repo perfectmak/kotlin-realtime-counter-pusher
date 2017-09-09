@@ -29,9 +29,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (savedInstanceState == null) {
-            fetchCurrentClickCount()
-        }
+
+        fetchCurrentClickCount()
         connectToRealtimeUpdates()
 
         clickButton.setOnClickListener { postClick() }
@@ -105,7 +104,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         pusher.disconnect()
-
         super.onPause()
     }
 }
