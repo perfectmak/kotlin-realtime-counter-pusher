@@ -26,6 +26,7 @@ To test it out, ensure that the [realtime server](https://github.com/perfectmak/
 Now, run the application on multiple devices. You would notice that as you click on the button, the count increases in realtime across all the devices
 
 ## Built With
+* [Kotlin](https://kotlinlang.org/) - Static Typed programming language
 * [Android Studio](https://developer.android.com/studio/index.html) - Android Development IDE
 * [Pusher](https://pusher.com/) - APIs to enable devs building realtime features
 
